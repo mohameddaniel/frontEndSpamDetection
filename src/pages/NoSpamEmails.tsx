@@ -1,5 +1,5 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import EmailList from '../components/EmailList';
 import { Email } from '../types/email';
 
