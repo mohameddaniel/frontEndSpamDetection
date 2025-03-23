@@ -56,7 +56,6 @@
   background-color: #ffffff;
   border-radius: 16px;
   align-self: center;
-  width: 90%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   margin: 1rem;
 }
@@ -117,18 +116,21 @@
   padding: 0 0.5rem;
   display: flex;
   align-items: center;
+  gap: 200px;
 }
 
 .email-column.from {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 10px;
 }
 
 .sender-avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  margin-right: 20px;
+  padding: 10px;
   background: #4a90e2;
   color: white;
   display: flex;
@@ -146,6 +148,7 @@
 
 .email-subject {
   font-weight: 500;
+  margin-left: 150px;
   color: #212529;
   margin-bottom: 0.25rem;
   font-size: 0.95rem;
