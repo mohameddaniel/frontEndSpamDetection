@@ -22,7 +22,7 @@ export default function Header() {
                 className={isActive('/all') ? 'active' : ''}
               >
                 <span className="nav-icon">📥</span>
-                Your Inbox (9)
+                Your Inbox 
               </Link>
             </li>
             <li>
@@ -31,7 +31,7 @@ export default function Header() {
                 className={isActive('/spam') ? 'active' : ''}
               >
                 <span className="nav-icon">⚠️</span>
-                Spam Emails (4)
+                Spam Emails 
               </Link>
             </li>
             <li>
@@ -40,7 +40,7 @@ export default function Header() {
                 className={isActive('/no-spam') ? 'active' : ''}
               >
                 <span className="nav-icon">✅</span>
-                Clean Emails (6)
+                Clean Emails 
               </Link>
             </li>
           </ul>
