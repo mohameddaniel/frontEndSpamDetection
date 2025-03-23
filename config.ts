@@ -1,0 +1,1 @@
+export const  host = "https://spamdetectionbackend-production.up.railway.app"
