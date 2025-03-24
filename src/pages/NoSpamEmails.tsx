@@ -12,6 +12,7 @@ interface ApiResponse {
 const NoSpamEmail = () => {
     const [emails, setEmails] = useState<Email[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
+    const [error,setError] = useState<any>('')
     useEffect(() => {
         const fetchEmails = async () => {
             try {
@@ -24,7 +25,7 @@ const NoSpamEmail = () => {
                 console.error('Error fetching emails:', error);
                 if (error instanceof AxiosError) {
                     const errorMessage = error.response?.data?.message || error.message;
-                    /* setError(`Error: ${errorMessage}`); */
+                    setError(`Error: ${errorMessage}`); 
                     toast.error(`Error: ${errorMessage}`, {
                         position: "top-center",
                         autoClose: 5000,
@@ -37,7 +38,7 @@ const NoSpamEmail = () => {
                         transition: Bounce,
                         });
                 } else {
-                    /* setError('An unexpected error occurred'); */
+                    setError('An unexpected error occurred'); 
                     toast.error('An unexpected error occurred', {
                         position: "top-center",
                         autoClose: 5000,
