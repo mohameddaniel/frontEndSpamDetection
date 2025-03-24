@@ -12,7 +12,6 @@ interface ApiResponse {
 const AllEmails: React.FC = () => {
     const [emails, setEmails] = useState<Email[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchEmails = async () => {
