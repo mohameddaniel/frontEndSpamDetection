@@ -6,7 +6,7 @@ import { RiInboxArchiveLine } from "react-icons/ri";
 import { RiSpam2Fill } from "react-icons/ri";
 import { LuCircleChevronDown } from "react-icons/lu";
 import { MdOutlineMailLock } from "react-icons/md";
-import { ToastContainer,toast,Bounce } from 'react-toastify';
+import { toast,Bounce } from 'react-toastify';
 import { TbClick } from "react-icons/tb";
 
 export default function Header() {
