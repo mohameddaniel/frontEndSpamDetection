@@ -26,7 +26,7 @@ export default function Header() {
       const response = await axios.get("https://spamdetectionbackend-production.up.railway.app/predict");  
       toast.success(`Data Predicted Successfully`, {
         position: "top-center",
-        autoClose: 5000,
+        autoClose: 3000,
         theme: "light",
         transition: Bounce,
         });
