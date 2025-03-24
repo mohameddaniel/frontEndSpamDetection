@@ -81,8 +81,7 @@ export default function Header() {
           <span className="logo-text">Spam Detection</span>
           <button  onClick={handleClick} disabled={loading}> 
           <TbClick size={20} className={loading ? 'spinning' : ''} /> 
-          {loading ? '  Predicting...' : '  Predict'}
-          
+          <span className="gray-text">{loading ? ' Predicting...' : ' Predict'}</span>     
         </button>
         </div>
        
