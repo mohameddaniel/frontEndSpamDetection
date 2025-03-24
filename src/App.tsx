@@ -5,9 +5,11 @@ import NoSpamEmail from './pages/NoSpamEmails';
 import AllEmails from './pages/AllEmails';
 import Header from './pages/Header';
 import DetailsEmails from './pages/DetailsEmails';
+import { ToastContainer,toast,Bounce } from 'react-toastify';
 function App() {
   return (
-    <Router>
+    <Router>  
+      <ToastContainer/> 
       <div className="app-container">
         <Header/>
         <main className="main-content">
