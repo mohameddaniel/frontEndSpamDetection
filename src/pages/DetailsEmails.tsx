@@ -14,7 +14,7 @@ const DetailsEmails = () => {
         <div className="email-details-container">
             <div className="email-details-header">
                 <button className="back-button" onClick={handleBack}>
-                    ← Back to Inbox
+                    ← Back
                 </button>
                 <div className="email-status">
                     {email.is_spam ? (
@@ -33,7 +33,12 @@ const DetailsEmails = () => {
                 <div className="email-details-meta">
                     <div className="meta-item">
                         <span className="meta-label">From:</span>
+                       <div className="from-det">
+                       <div className="sender-avatar">
+                          <span>{email.from_email.charAt(0).toUpperCase()}</span>
+                        </div>
                         <span className="meta-value">{email.from_email || 'Unknown Sender'}</span>
+                       </div>
                     </div>
                     <div className="meta-item">
                         <span className="meta-label">Date:</span>

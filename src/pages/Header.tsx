@@ -11,8 +11,8 @@ import { TbClick } from "react-icons/tb";
 
 export default function Header() {
   const location = useLocation();
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(false); 
+/*   const [error, setError] = useState<string | null>(null);
+ */  const [loading, setLoading] = useState<boolean>(false); 
   const navigate = useNavigate();
   const isActive = (path: string) => {
     return location.pathname === path;
@@ -20,8 +20,8 @@ export default function Header() {
 
   const handleClick = async () => {
     setLoading(true);  
-    setError(null);  
-    try {
+/*     setError(null);  
+ */    try {
       console.log('Getting and predicting emails...');
       const response = await axios.get("https://spamdetectionbackend-production.up.railway.app/predict");  
       toast.success(`Data Predicted Successfully`, {
@@ -36,13 +36,13 @@ export default function Header() {
         transition: Bounce,
         });
       console.log('Response:', response.data);
-      navigate(0);
+      navigate('/all');
     } catch (error) {
       console.error('Error getting or predicting emails:', error);
       if (error instanceof AxiosError) {
         const errorMessage = error.response?.data?.message || error.message;
-        setError(`Error: ${errorMessage}`);
-        toast.error(`Error: ${errorMessage}`, {
+/*         setError(`Error: ${errorMessage}`);
+ */        toast.error(`Error: ${errorMessage}`, {
           position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,
