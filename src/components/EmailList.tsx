@@ -1,6 +1,8 @@
 import React from 'react';
 import { Email } from '../types/email';
 import { useNavigate } from 'react-router-dom';
+import { RiSpam2Fill } from "react-icons/ri";
+import { LuCircleChevronDown } from "react-icons/lu";
 
 interface EmailListProps {
     emails: Email[];
@@ -16,9 +18,9 @@ const EmailList: React.FC<EmailListProps> = ({ emails }) => {
     return (
         <div className="email-list">
             <div className="email-list-header">
-                <div className="email-column from">From</div>
+                 <div className="email-column from">From</div>
                 <div className="email-column subject">Subject</div>
-                <div className="email-column status">Status</div>
+                <div className="email-column status">Status</div> 
             </div>
             {emails.map((email) => (
                 <div 
@@ -31,12 +33,12 @@ const EmailList: React.FC<EmailListProps> = ({ emails }) => {
                           <span>{email.from_email.charAt(0).toUpperCase()}</span>
                         </div>
                         <span className="email-from">
-                            {email.from_email.substring(0,15)}...
+                            {email.from_email}
                         </span>
                     </div>
                     <div className="email-column subject">
                         <div className="email-subject">
-                            {email.subject.toUpperCase() || '(No Subje)'}
+                            {email.subject.toUpperCase() || '(No Subject)'}
                         </div>
                         <div className="email-preview">
                             {email.message.substring(0, 100)}...
@@ -44,9 +46,9 @@ const EmailList: React.FC<EmailListProps> = ({ emails }) => {
                     </div>
                     <div className="email-column status">
                         {email.is_spam ? (
-                            <span className="status-badge spam">Spam</span>
+                            <span /* className="status-badge spam" */><RiSpam2Fill size={28} color='rgb(76, 62, 53)'/> </span>
                         ) : (
-                            <span className="status-badge ham">Clean</span>
+                            <span /*  className="status-badge ham" */><LuCircleChevronDown size={28} color='rgb(58, 65, 58)'/></span>
                         )}
                     </div>
                 </div>

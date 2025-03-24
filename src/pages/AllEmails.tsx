@@ -2,6 +2,8 @@ import axios, { AxiosError, AxiosResponse } from 'axios';
 import React, { useEffect, useState } from 'react';
 import EmailList from '../components/EmailList';
 import { Email } from '../types/email';
+import { ToastContainer,toast,Bounce } from 'react-toastify';
+import { PiEmptyThin } from "react-icons/pi";
 
 interface ApiResponse {
     data: Email[];
@@ -23,9 +25,31 @@ const AllEmails: React.FC = () => {
                 console.error('Error fetching emails:', error);
                 if (error instanceof AxiosError) {
                     const errorMessage = error.response?.data?.message || error.message;
-                    setError(`Error: ${errorMessage}`);
+                   /*  setError(`Error: ${errorMessage}`); */
+                    toast.error(`Error: ${errorMessage}`, {
+                        position: "top-center",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: false,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                        transition: Bounce,
+                        });
                 } else {
-                    setError('An unexpected error occurred');
+                    /* setError('An unexpected error occurred'); */
+                    toast.error('An unexpected error occurred', {
+                        position: "top-center",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: false,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                        transition: Bounce,
+                        });
                 }
             } finally {
                 setLoading(false);
@@ -44,14 +68,17 @@ const AllEmails: React.FC = () => {
     );
 
     return (
+      <>
+              <ToastContainer/>
         <div className="email-container">
             <h1>All Your Emails</h1>
             {emails.length === 0 ? (
-                <p className="no-emails">No emails found</p>
+                <p className="no-emails">No emails found <PiEmptyThin size={48} color='gray'/></p>
             ) : (
                 <EmailList emails={emails} />
             )}
         </div>
+      </>
     );
 };
 

@@ -6,6 +6,8 @@ import { RiInboxArchiveLine } from "react-icons/ri";
 import { RiSpam2Fill } from "react-icons/ri";
 import { LuCircleChevronDown } from "react-icons/lu";
 import { MdOutlineMailLock } from "react-icons/md";
+import { ToastContainer,toast,Bounce } from 'react-toastify';
+import { TbClick } from "react-icons/tb";
 
 export default function Header() {
   const location = useLocation();
@@ -22,6 +24,17 @@ export default function Header() {
     try {
       console.log('Getting and predicting emails...');
       const response = await axios.get("https://spamdetectionbackend-production.up.railway.app/predict");  
+      toast.success(`Data Predicted Successfully`, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+        });
       console.log('Response:', response.data);
       navigate(0);
     } catch (error) {
@@ -29,8 +42,29 @@ export default function Header() {
       if (error instanceof AxiosError) {
         const errorMessage = error.response?.data?.message || error.message;
         setError(`Error: ${errorMessage}`);
+        toast.error(`Error: ${errorMessage}`, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+          });
       } else {
-        setError('An unexpected error occurred');
+        toast.error('An unexpected error occurred', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+          });
       }
     } finally {
       setLoading(false);
@@ -38,17 +72,21 @@ export default function Header() {
   };
 
   return (
+  <>
+      <ToastContainer/>   
     <header className="app-header">
       <div className="header-content responsive-header">
         <div className="header-logo">
           <MdOutlineMailLock size={28} color='gray' />
           <span className="logo-text">Spam Detection</span>
           <button  onClick={handleClick} disabled={loading}> 
-          {loading ? 'Predicting...' : 'Predict'}
+          <TbClick size={20} className={loading ? 'spinning' : ''} /> 
+          {loading ? '  Predicting...' : '  Predict'}
+          
         </button>
         </div>
        
-        {error && <div className="error-message">{error}</div>} 
+       {/*  {error && <div className="error-message">{error}</div>}  */}
 
         <nav className="navigation responsive-navigation">
           <ul className="responsive-nav-list">
@@ -75,5 +113,6 @@ export default function Header() {
         </nav>
       </div>
     </header>
+  </>
   );
 }

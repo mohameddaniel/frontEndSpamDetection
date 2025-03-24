@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Email } from '../types/email'
-
+import { RiSpam2Fill } from "react-icons/ri";
+import { LuCircleChevronDown } from "react-icons/lu";
 const DetailsEmails = () => {
     const location = useLocation()
     const navigate = useNavigate()
@@ -17,9 +18,9 @@ const DetailsEmails = () => {
                 </button>
                 <div className="email-status">
                     {email.is_spam ? (
-                        <span className="status-badge spam">Spam</span>
+                        <span /* className="status-badge spam" */><RiSpam2Fill size={28} color='gray'/></span>
                     ) : (
-                        <span className="status-badge ham">Clean</span>
+                        <span /* className="status-badge ham" */><LuCircleChevronDown size={28} color='gray'/></span>
                     )}
                 </div>
             </div>
