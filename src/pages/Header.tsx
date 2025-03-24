@@ -27,7 +27,7 @@ export default function Header() {
       toast.success(`Data Predicted Successfully`, {
         position: "top-center",
         autoClose: 5000,
-        hideProgressBar: true,
+        hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
@@ -45,7 +45,7 @@ export default function Header() {
  */        toast.error(`Error: ${errorMessage}`, {
           position: "top-center",
           autoClose: 5000,
-          hideProgressBar: true,
+          hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
@@ -57,7 +57,7 @@ export default function Header() {
         toast.error('An unexpected error occurred', {
           position: "top-center",
           autoClose: 5000,
-          hideProgressBar: true,
+          hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
