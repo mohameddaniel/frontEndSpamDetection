@@ -28,18 +28,18 @@ const EmailList: React.FC<EmailListProps> = ({ emails }) => {
                 >
                     <div className="email-column from">
                         <div className="sender-avatar">
-                            {email.from_email.charAt(0).toUpperCase()}
+                          <span>{email.from_email.charAt(0).toUpperCase()}</span>
                         </div>
                         <span className="email-from">
-                            {email.from_email || 'No sender'}
+                            {email.from_email.substring(0,15)}...
                         </span>
                     </div>
                     <div className="email-column subject">
                         <div className="email-subject">
-                            {email.subject || '(No Subject)'}
+                            {email.subject.toUpperCase() || '(No Subje)'}
                         </div>
                         <div className="email-preview">
-                            {email.message.substring(0, 60)}...
+                            {email.message.substring(0, 100)}...
                         </div>
                     </div>
                     <div className="email-column status">
