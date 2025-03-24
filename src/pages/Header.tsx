@@ -27,9 +27,6 @@ export default function Header() {
       toast.success(`Data Predicted Successfully`, {
         position: "top-center",
         autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        progress: undefined,
         theme: "light",
         transition: Bounce,
         });
