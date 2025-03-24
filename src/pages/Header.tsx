@@ -79,9 +79,9 @@ export default function Header() {
         <div className="header-logo">
           <MdOutlineMailLock size={28} color='gray' />
           <span className="logo-text">Spam Detection</span>
-          <button  onClick={handleClick} disabled={loading}> 
+          <button  className="gray-text" onClick={handleClick} disabled={loading}> 
           <TbClick size={20} className={loading ? 'spinning' : ''} /> 
-          <span className="gray-text">{loading ? ' Predicting...' : ' Predict'}</span>     
+             {loading ? ' Predicting...' : ' Predict'}     
         </button>
         </div>
        
