@@ -1,6 +1,8 @@
 import React from 'react';
 import { Email } from '../types/email';
 import { useNavigate } from 'react-router-dom';
+import { RiSpam2Fill } from "react-icons/ri";
+import { LuCircleChevronDown } from "react-icons/lu";
 
 interface EmailListProps {
     emails: Email[];
@@ -16,9 +18,9 @@ const EmailList: React.FC<EmailListProps> = ({ emails }) => {
     return (
         <div className="email-list">
             <div className="email-list-header">
-                <div className="email-column from">From</div>
+                 <div className="email-column from">From</div>
                 <div className="email-column subject">Subject</div>
-                <div className="email-column status">Status</div>
+                <div className="email-column status">Status</div> 
             </div>
             {emails.map((email) => (
                 <div 
@@ -28,25 +30,25 @@ const EmailList: React.FC<EmailListProps> = ({ emails }) => {
                 >
                     <div className="email-column from">
                         <div className="sender-avatar">
-                            {email.from_email.charAt(0).toUpperCase()}
+                          <span>{email.from_email.charAt(0).toUpperCase()}</span>
                         </div>
                         <span className="email-from">
-                            {email.from_email || 'No sender'}
+                            {email.from_email}
                         </span>
                     </div>
                     <div className="email-column subject">
                         <div className="email-subject">
-                            {email.subject || '(No Subject)'}
+                            {email.subject.toUpperCase() || '(No Subject)'}
                         </div>
                         <div className="email-preview">
-                            {email.message.substring(0, 60)}...
+                            {email.message.substring(0, 100)}...
                         </div>
                     </div>
                     <div className="email-column status">
                         {email.is_spam ? (
-                            <span className="status-badge spam">Spam</span>
+                            <span /* className="status-badge spam" */><RiSpam2Fill size={28} color='gray'/> </span>
                         ) : (
-                            <span className="status-badge ham">Clean</span>
+                            <span /*  className="status-badge ham" */><LuCircleChevronDown size={28} color='gray'/></span>
                         )}
                     </div>
                 </div>
