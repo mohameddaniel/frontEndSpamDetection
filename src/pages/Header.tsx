@@ -67,7 +67,7 @@ export default function Header() {
 
   return (
   <>
-      <ToastContainer/>   
+       
     <header className="app-header">
       <div className="header-content responsive-header">
         <div className="header-logo">
