@@ -1,8 +1,7 @@
 import React from 'react';
 import { Email } from '../types/email';
 import { useNavigate } from 'react-router-dom';
-import { RiSpam2Fill } from "react-icons/ri";
-import { LuCircleChevronDown } from "react-icons/lu";
+
 
 interface EmailListProps {
     emails: Email[];
