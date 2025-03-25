@@ -46,9 +46,9 @@ const EmailList: React.FC<EmailListProps> = ({ emails }) => {
                     </div>
                     <div className="email-column status">
                         {email.is_spam ? (
-                            <span /* className="status-badge spam" */><RiSpam2Fill size={28} color='gray'/> </span>
+                            <span className="status-badge spam" />Spam</span>
                         ) : (
-                            <span /*  className="status-badge ham" */><LuCircleChevronDown size={28} color='gray'/></span>
+                            <span  className="status-badge ham" >Clean</span>
                         )}
                     </div>
                 </div>
